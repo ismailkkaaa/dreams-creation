@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta harset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dreams Creation | Handmade Craft</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+/* Global Styles */
+    :root {
+      --primary: #69ad7c;
+      --primary-dark: #5a9a6b;
+      --dark: #333;
+      --light: #f9f9f9;
+      --text-light: #777;
+      --shadow: 0 5px 15px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      color: var(--dark);
+      line-height: 1.6;
+      background-color: #fafafa;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    section {
+      padding: 5rem 5%;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      padding: 1rem 5%;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: var(--dark);
+      transition: var(--transition);
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav a:not(.btn):hover {
+      color: var(--primary);
+    }
+
+    nav a:not(.btn)::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -5px;
+      left: 0;
+      transition: var(--transition);
+    }
+
+    nav a:not(.btn):hover::after {
+      width: 100%;
+    }
+
+    .btn {
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      transition: var(--transition);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(105, 173, 124, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(105, 173, 124, 0.4);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      min-height: 90vh;
+      background: linear-gradient(135deg, #f9f9f9 0%, #e8f5e9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(105, 173, 124, 0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-text {
+      flex: 1;
+      padding-right: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-text h1 span {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-text h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: rgba(105, 173, 124, 0.2);
+      z-index: -1;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      max-height: 600px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      animation: float 6s ease-in-out infinite;
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Features */
+    .features {
+      text-align: center;
+      background: var(--light);
+    }
+
+    .features h2 {
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .features h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      background: white;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .feature:hover i {
+      transform: scale(1.1);
+    }
+
+    .feature h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .feature p {
+      color: var(--text-light);
+    }
+
+    /* Gallery */
+    .gallery {
+      text-align: center;
+      background: white;
+    }
+
+    .gallery h2 {
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: white;
+      padding: 1.5rem;
+      transform: translateY(100%);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--light);
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+    }
+
+    .testimonial-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      margin: 0 1rem;
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(105, 173, 124, 0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .testimonial-rating {
+      color: orange;
+      margin: 1rem 0;
+    }
+
+    /* Rating Styles */
+    .rating-container {
+      background: white;
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      margin-top: 3rem;
+    }
+
+    .heading {
+      font-size: 1.8rem;
+      margin-right: 15px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .fa {
+      font-size: 1.5rem;
+    }
+
+    .checked {
+      color: orange;
+    }
+
+    .rating-summary {
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .side {
+      width: 15%;
+      font-weight: 600;
+    }
+
+    .middle {
+      width: 70%;
+      margin: 0 1rem;
+    }
+
+    .right {
+      width: 15%;
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .bar-container {
+      width: 100%;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 20px;
+    }
+
+    .bar-5 {background: linear-gradient(to right, #04AA6D, #69ad7c);}
+    .bar-4 {background: linear-gradient(to right, #2196F3, #5a9a6b);}
+    .bar-3 {background: linear-gradient(to right, #00bcd4, #5a9a6b);}
+    .bar-2 {background: linear-gradient(to right, #ff9800, #ffad33);}
+    .bar-1 {background: linear-gradient(to right, #f44336, #ff6659);}
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      background: white;
+    }
+
+    .contact h2 {
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(105, 173, 124, 0.2);
+    }
+
+    textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 4rem 5%;
+      background: var(--dark);
+      color: white;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-logo span {
+      color: var(--primary);
+    }
+
+    .footer-about p {
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links h3, .footer-contact h3 {
+      color: white;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-contact p {
+      color: #aaa;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-contact i {
+      margin-right: 10px;
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+    }
+
+    .copyright a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+      z-index: 999;
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+
+    .floating-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 5%;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        transition: var(--transition);
+      }
+
+      nav.active {
+        left: 0;
+      }
+
+      nav a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 5rem 5% 3rem;
+        min-height: auto;
+      }
+
+      .hero-text {
+        padding-right: 0;
+        margin-bottom: 3rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-image img {
+        max-height: 400px;
+      }
+
+      section {
+        padding: 4rem 5%;
+      }
+
+      .testimonial {
+        padding: 2rem 1.5rem;
+      }
+
+      .rating-container {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      form {
+        padding: 2rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+</style>
+</head>
+<body>
+<!-- Header -->
+<header id="header">
+<div class="logo">Dreams Creation</div>
+<button class="menu-toggle"><i class="fas fa-bars"></i></button>
+<nav id="nav">
+<a href="#features">Features</a>
+<a href="#gallery">Gallery</a>
+<a href="#testimonials">Reviews</a>
+<a class="btn" href="https://wa.me/message/ZAXXTKBRHVTOI1">Order Now</a>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-text">
+<h1>Introducing <span>Dreams Creation</span></h1>
+<p>Handcrafted with care for your everyday joy. Each piece tells a unique story of creativity and passion.</p>
+<a class="btn" href="#contact">Custom Order</a>
+<a class="btn" href="https://wa.me/message/ZAXXTKBRHVTOI1" style="margin-left: 1rem;">Chat on WhatsApp</a>
+</div>
+<div class="hero-image">
+<img alt="Dreams Creation Handmade Product" src="assets/images/nobglogo.png">
+</div>
+</section>
+<!-- Features -->
+<section class="features" id="features">
+<h2>Why You'll Love It</h2>
+<div class="feature-grid">
+<div class="feature">
+<i class="fas fa-heart"></i>
+<h3>Handmade</h3>
+<p>Each piece is uniquely crafted with attention to detail and love by skilled artisans.</p>
+</div>
+<div class="feature">
+<i class="fas fa-leaf"></i>
+<h3>Eco-Friendly</h3>
+<p>Made with sustainable, natural materials that are kind to the planet and biodegradable.</p>
+</div>
+<div class="feature">
+<i class="fas fa-gift"></i>
+<h3>Perfect Gift</h3>
+<p>Thoughtful creations that make memorable gifts for any occasion, packaged beautifully.</p>
+</div>
+</div>
+</section>
+<!-- Gallery -->
+<section class="gallery" id="gallery">
+<h2>Our Creations</h2>
+<div class="gallery-grid">
+<div class="gallery-item">
+<img alt="hampers" loading="lazy" src="assets/images/pro1.jpg"/>
+<div class="gallery-overlay">
+<h3>hampers</h3>
+<p>Heart shape hampers <br/> Transparent bag hampers <br/> Circle shape hampers <br/> Customised hampers <br/> Hand made hampers <br/> Mini hampers <br/> Ribbon box hampers</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="graphic design" loading="lazy" src="assets/images/pro2.jpg"/>
+<div class="gallery-overlay">
+<h3>graphic design</h3>
+<p>Postcards and Flyers <br/> logo making</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="frames" loading="lazy" src="assets/images/pro3.jpg"/>
+<div class="gallery-overlay">
+<h3>frames</h3>
+<p>A3 size frames <br/> A4 size frames <br/> A5 size frames <br/> 5*7 size frames <br/> 4*4 size frames <br/> 2*2 size frames</p>
+</div>
+</div>
+<div class="gallery-item">
+<img loading="lazy" src="assets/images/pro4.jpg"/>
+<div class="gallery-overlay">
+<h3>digital invitation</h3>
+<p>Wedding invitation<br/>birthday invitation<br/>save the date<br/>digital save the date <br/>poster editing<br/>business cards editing <br/> logo design <br/>photo editing and video <br/> editings available</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="bracelets" loading="lazy" src="assets/images/pro5.jpg"/>
+<div class="gallery-overlay">
+<h3>bracelets</h3>
+<p>Customised bracelet <br/> Couple bracelet <br/>single bracelet<br/>glass bead bracelet<br/>evil eye bracelet<br/>friendship bracelet <br/>magnet bracelet</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="bouquet" loading="lazy" src="assets/images/pro6.jpg"/>
+<div class="gallery-overlay">
+<h3>bouquet</h3>
+<p>Polaroid bouquet<br/>flower bouquet<br/>artificial rose bouquet<br/>mini bouquet<br/>stationary items bouquet<br/>Beauty products bouquets<br/>butterfly bouquel<br/>Kinder Joy bouquet<br/>wedding bouquet and fan bouquets</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="polaroids" loading="lazy" src="assets/images/pro7.jpg"/>
+<div class="gallery-overlay">
+<h3>polaroids</h3>
+<p>Ring album<br/>Customised album<br/>micro polaroid<br/>small size polaroid<br/>medium size polaroid<br/>large size polaroid<br/>different type of size and shape polaroids available</p>
+</div>
+</div>
+
+</section>
+<!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+<h2>Customer Reviews</h2>
+<div class="testimonial-slider">
+<div class="testimonial">
+<div class="testimonial-content">
+          "The craftsmanship is exceptional! I ordered a custom piece and it exceeded all my expectations. The attention to detail is remarkable."
+        </div>
+<div class="testimonial-rating">
+<i class="fas fa-star checked"></i>
+<i class="fas fa-star checked"></i>
+<i class="fas fa-star checked"></i>
+<i class="fas fa-star checked"></i>
+<i class="fas fa-star checked"></i>
+</div>
+<div class="testimonial-author">- Sarah J.</div>
+</div>
+</div>
+<div class="rating-container">
+<div>
+<span class="heading">User Rating</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<p class="rating-summary">4.1 average based on 254 reviews.</p>
+</div>
+<div class="row">
+<div class="side">
+<div>5 star</div>
+</div>
+<div class="middle">
+<div class="bar-container">
+<div class="bar bar-5" style="width:59.1%"></div>
+</div>
+</div>
+<div class="side right">
+<div>150</div>
+</div>
+</div>
+<div class="row">
+<div class="side">
+<div>4 star</div>
+</div>
+<div class="middle">
+<div class="bar-container">
+<div class="bar bar-4" style="width:24.8%"></div>
+</div>
+</div>
+<div class="side right">
+<div>63</div>
+</div>
+</div>
+<div class="row">
+<div class="side">
+<div>3 star</div>
+</div>
+<div class="middle">
+<div class="bar-container">
+<div class="bar bar-3" style="width:12.2%"></div>
+</div>
+</div>
+<div class="side right">
+<div>31</div>
+</div>
+</div>
+<div class="row">
+<div class="side">
+<div>2 star</div>
+</div>
+<div class="middle">
+<div class="bar-container">
+<div class="bar bar-2" style="width:2.4%"></div>
+</div>
+</div>
+<div class="side right">
+<div>6</div>
+</div>
+</div>
+<div class="row">
+<div class="side">
+<div>1 star</div>
+</div>
+<div class="middle">
+<div class="bar-container">
+<div class="bar bar-1" style="width:1.6%"></div>
+</div>
+</div>
+<div class="side right">
+<div>4</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact/Order -->
+<section class="contact" id="contact">
+<h2>Ready to Order?</h2>
+<form id="orderForm">
+<div class="form-group">
+<input placeholder="Your Name" required="" type="text"/>
+</div>
+<div class="form-group">
+<input placeholder="Your Email" required="" type="email"/>
+</div>
+<div class="form-group">
+<input placeholder="Your WhatsApp Number" type="tel"/>
+</div>
+<div class="form-group">
+<textarea placeholder="Your Message or Order Details" required=""></textarea>
+</div>
+<button class="btn" type="submit">Send Inquiry</button>
+</form>
+</section>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-about">
+<div class="footer-logo">Dreams <span>Creation</span></div>
+<p>Creating beautiful handmade products with love and care since 2020. Each piece is crafted to bring joy and uniqueness to your everyday life.</p>
+<div class="social-links">
+<a href="https://www.instagram.com/dreams__creation_?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+<a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+</div>
+</div>
+<div class="footer-links">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#testimonials">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-contact">
+<h3>Contact Us</h3>
+<p><i class="fas fa-map-marker-alt"></i> 680663 pullut.kodungallur</p>
+<p><i class="fas fa-phone-alt"></i> +91 7025362767
+<p><i class="fas fa-envelope"></i> dreamscreation398@gmail.com</p>
+<p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/message/ZAXXTKBRHVTOI1">Chat on WhatsApp</a></p>
+</div>
+</div>
+<div class="copyright">
+<p>© 2025 Dreams Creation. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i> by <a href="#" target="_blank">Dreams Team</a></p>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="floating-btn" href="https://wa.me/message/ZAXXTKBRHVTOI1">
+<i class="fab fa-whatsapp"></i>
+</a>
+<script src="script.js"></script>
+</body>
+</html>
